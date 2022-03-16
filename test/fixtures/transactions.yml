@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payer: MyString
+  points: 1
+  timestamp: 2022-03-16
+  User: one
+
+two:
+  payer: MyString
+  points: 1
+  timestamp: 2022-03-16
+  User: two
