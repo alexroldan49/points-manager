@@ -46,6 +46,15 @@ class UsersController < ApplicationController
         end
     end
 
+    def payer_balances
+        user = User.find_by(id: params[:id])
+        if user
+            render json: user.payer_point_balances, status: :ok
+        else
+            render json: {errors: "Not authorized"}, status: :unauthorized
+        end
+    end
+
     def create
          user = User.new(user_params.merge({balance: 0}))
          if user.save
@@ -54,15 +63,6 @@ class UsersController < ApplicationController
              render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
          end
     end
-
-    # def spend
-    #     user = User.find_by(id: [:id])
-    #     if user
-            
-    #     else
-    #         render json: {errors: user.errors.full_messages}, status: :unprocessable_entity
-    #     end
-    # end
     
     private
 

@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :users, only:[:index, :create, :update, :show]
   resources :transactions, only:[:index, :create, :show]
 
+  get "/balances/:id", to: "users#payer_balances"
+  
 end

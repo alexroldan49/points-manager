@@ -11,7 +11,7 @@ class User < ApplicationRecord
            end 
     end 
 
-    def transactions_list
+    def payer_point_balances
         list = {}
         self.transactions.each do |obj|
            if list.has_key?(obj.payer)
